@@ -5,7 +5,10 @@ const Product = require('./models/product.model.js');
 const app = express()
 
 // permet fer servir JSON
-app.use(express.json())
+app.use(express.json());
+
+// permet interpretar dades enviades a la URL
+app.use(express.urlencoded({extended: false}));
 
 app.get('/', (req, res) => {
    res.send('Hello World')
@@ -47,6 +50,7 @@ app.put('/api/products/:id', async (req, res) => {
         if(!product) {
             res.status(404).json({message: "Product not found"});
         } else {
+            //product conté la versió anterior
             const updatedProduct = await Product.findById(id);
             res.status(200).json(updatedProduct);
         }
@@ -54,7 +58,20 @@ app.put('/api/products/:id', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 });
- 
+
+app.delete('/api/products/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const product = await Product.findByIdAndDelete(id);
+        if(!product) {
+            res.status(404).json({message: "Product not found"});
+        } else {
+            res.status(200).json({message: `Product with id ${id} deleted successfully`});
+        }
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+});
 
 mongoose.connect(config.get('mongodb.uri'))
 .then(() => {
