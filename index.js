@@ -38,6 +38,22 @@ app.post('/api/products', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 });
+
+app.put('/api/products/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const product = await Product.findByIdAndUpdate(id, req.body);
+        
+        if(!product) {
+            res.status(404).json({message: "Product not found"});
+        } else {
+            const updatedProduct = await Product.findById(id);
+            res.status(200).json(updatedProduct);
+        }
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+});
  
 
 mongoose.connect(config.get('mongodb.uri'))
