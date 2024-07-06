@@ -1,5 +1,5 @@
 {
     "mongodb" : {
-        "uri": "collection from https://mongodb.com/atlas"
+        "uri": "database from https://mongodb.com/atlas"
     }
 }
