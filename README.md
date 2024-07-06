@@ -1,4 +1,4 @@
-# Proves amb Node
+# Learning Node
 
 Projete per apendre a fer servir Node. És una api amb express que es connecta a una base de dades de mongodb amb mongoose.
 
