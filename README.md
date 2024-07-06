@@ -1,6 +1,8 @@
-#   
+# Proves amb Node
 
-Tutorial: https://www.youtube.com/watch?v=_7UQPve99r4
+Projete per apendre a fer servir Node. És una api amb express que es connecta a una base de dades de mongodb amb mongoose.
+
+* CRUD API Tutorial – Node, Express, MongoDB: https://www.youtube.com/watch?v=_7UQPve99r4
 
 ## Paquets Node
 
