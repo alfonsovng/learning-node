@@ -1,3 +1,4 @@
+const config = require('config');
 const User = require('../models/user.model.js');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -25,7 +26,7 @@ const login = async (req, res) => {
         if (!passwordMatch) {
             return res.status(401).json({ error: 'Authentication failed' });
         }
-        const token = jwt.sign({ userId: user._id }, 'your-secret-key', {
+        const token = jwt.sign({ userId: user._id }, config.get('jwt.secretKey'), {
             expiresIn: '1h',
         });
         res.status(200).json({ token });

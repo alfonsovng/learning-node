@@ -1,5 +1,8 @@
 {
     "mongodb" : {
         "uri": "database from https://mongodb.com/atlas"
+    },
+    "jwt" :{
+        "secretKey": "your-secret-key"
     }
 }
