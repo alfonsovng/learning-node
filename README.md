@@ -30,3 +30,8 @@ He seguit les guies següents:
 * [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode)
 
 ## React
+
+Creem el projecte amb vite:
+
+    npm create vite@latest client
+
