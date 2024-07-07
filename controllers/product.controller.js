@@ -21,6 +21,8 @@ const getProduct = async (req, res) => {
 
 const createProduct = async (req, res) => {
     try {
+        console.log("USER " + req.userId);
+
         const product = await Product.create(req.body);
         res.status(200).json(product);
     } catch (error) {
@@ -30,6 +32,8 @@ const createProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
     try {
+        console.log("USER " + req.userId);
+
         const { id } = req.params;
         const product = await Product.findByIdAndUpdate(id, req.body);
         
@@ -47,6 +51,8 @@ const updateProduct = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
     try {
+        console.log("USER " + req.userId);
+        
         const { id } = req.params;
         const product = await Product.findByIdAndDelete(id);
         if(!product) {
