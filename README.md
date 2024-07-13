@@ -23,6 +23,7 @@ He seguit les guies següents:
 * https://www.npmjs.com/package/jsonwebtoken
 * https://www.npmjs.com/package/bcrypt
 * https://www.npmjs.com/package/ejs
+* https://www.npmjs.com/package/cors
 
 ### Extensions de Visual Code
 
@@ -35,3 +36,6 @@ Creem el projecte amb vite:
 
     npm create vite@latest client
 
+He seguit la guia següent:
+
+* [How to do crud operations in ReactJS?](https://medium.com/@kaklotarrahul79/how-to-do-crud-operations-in-reactjs-52a9347954f3)

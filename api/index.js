@@ -1,10 +1,14 @@
 const config = require('config');
 const express = require('express')
 const mongoose = require('mongoose');
+const cors = require('cors');
 const productRoute = require('./routes/product.route.js')
 const authRoute = require('./routes/auth.route.js')
 
 const app = express()
+
+// habilita peticions cross-origin
+app.use(cors());
 
 // permet fer servir JSON
 app.use(express.json());
