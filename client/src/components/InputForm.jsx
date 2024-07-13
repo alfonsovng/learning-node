@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const InputForm = ({ addUser, updateUser, initialData }) => {
+const InputForm = ({ addProduct, updateProduct, initialData }) => {
   const [formData, setFormData] = useState(initialData);
 
   const handleInputChange = (event) => {
@@ -14,9 +14,9 @@ const InputForm = ({ addUser, updateUser, initialData }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (formData.id) {
-      updateUser(formData);
+      updateProduct(formData);
     } else {
-      addUser(formData);
+      addProduct(formData);
     }
     //TODO: deshabilitar el formulari per a que no és modifiqui
   };
@@ -29,11 +29,11 @@ const InputForm = ({ addUser, updateUser, initialData }) => {
       </label></p>
       <p><label>
         Quantity:
-        <input type="number" name="quantity" value={formData.quantity} onChange={handleInputChange} />
+        <input type="number" name="quantity" required value={formData.quantity} onChange={handleInputChange} />
       </label></p>
       <p><label>
         Price:
-        <input type="number" name="price" value={formData.price} onChange={handleInputChange} />
+        <input type="number" name="price" required value={formData.price} onChange={handleInputChange} />
       </label></p>
       <p><label>
         Image:

@@ -16,7 +16,7 @@ function App() {
   // Fetch products from API
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:3000/products');
+      const response = await fetch('http://127.0.0.1:3000/api/products');
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -27,7 +27,7 @@ function App() {
   // Create a new product
   const addProduct = async (productData) => {
     try {
-      const response = await fetch('http://127.0.0.1:3000/products', {
+      const response = await fetch('http://127.0.0.1:3000/api/products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ function App() {
   // Update an existing product
   const updateProduct = async (productData) => {
     try {
-      const response = await fetch(`http://127.0.0.1:3000/products/${productData.id}`, {
+      const response = await fetch(`http://127.0.0.1:3000/api/products/${productData.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ function App() {
   // Delete a product
   const deleteProduct = async (productId) => {
     try {
-      await fetch(`http://127.0.0.1:3000/products/${productId}`, {
+      await fetch(`http://127.0.0.1:3000/api/products/${productId}`, {
         method: 'DELETE',
       });
       const updatedProducts = products.filter((product) => product.id !== productId);
@@ -78,7 +78,7 @@ function App() {
   return (
     <div>
       <h1>CRUD Application</h1>
-      <InputForm addProduct={addProduct} updateProduct={updateProduct} initialData={{ }} />
+      <InputForm addProduct={addProduct} updateProduct={updateProduct} initialData={{ name: '', quantity: '', price: '', image: ''}} />
       <ProductList products={products} viewProduct={setSelectedProduct} editProduct={setSelectedProduct} deleteProduct={deleteProduct} />
       {selectedProduct ? (
         <div>
