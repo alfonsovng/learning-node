@@ -15,6 +15,7 @@ function App() {
 
   // Fetch products from API
   const fetchProducts = async () => {
+    console.log("fetchProducts!!")
     try {
       const response = await fetch('http://127.0.0.1:3000/api/products');
       const data = await response.json();
@@ -56,7 +57,6 @@ function App() {
         product.id === updatedProduct.id ? updatedProduct : product
       );
       setProducts(updatedProducts);
-      setSelectedProduct(null);
     } catch (error) {
       console.error('Error updating product:', error);
     }
@@ -78,7 +78,7 @@ function App() {
   return (
     <div>
       <h1>CRUD Application</h1>
-      <InputForm addProduct={addProduct} updateProduct={updateProduct} initialData={{ name: '', quantity: '', price: '', image: ''}} />
+      <InputForm addProduct={addProduct} initialData={{ name: '', quantity: '', price: '', image: ''}} />
       <ProductList products={products} viewProduct={setSelectedProduct} editProduct={setSelectedProduct} deleteProduct={deleteProduct} />
       {selectedProduct ? (
         <div>
