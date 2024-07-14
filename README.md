@@ -39,3 +39,7 @@ Creem el projecte amb vite:
 He seguit la guia següent:
 
 * [How to do crud operations in ReactJS?](https://medium.com/@kaklotarrahul79/how-to-do-crud-operations-in-reactjs-52a9347954f3)
+
+### Extensions de Chrome
+
+* [React Developer Tools](https://chromewebstore.google.com/detail/fmkadmapgofadopljbjfkapdkoienihi)

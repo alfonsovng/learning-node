@@ -3,6 +3,7 @@ import InputForm from './components/InputForm';
 import ProductList from './components/ProductList';
 import ProductDetail from './components/ProductDetail';
 import ProductEdit from './components/ProductEdit';
+import Config from "./config.json";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -17,7 +18,7 @@ function App() {
   const fetchProducts = async () => {
     console.log("fetchProducts!!")
     try {
-      const response = await fetch('http://127.0.0.1:3000/api/products');
+      const response = await fetch(Config.SERVER_URL + 'products');
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -28,7 +29,7 @@ function App() {
   // Create a new product
   const addProduct = async (productData) => {
     try {
-      const response = await fetch('http://127.0.0.1:3000/api/products', {
+      const response = await fetch(Config.SERVER_URL + 'products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +46,7 @@ function App() {
   // Update an existing product
   const updateProduct = async (productData) => {
     try {
-      const response = await fetch(`http://127.0.0.1:3000/api/products/${productData.id}`, {
+      const response = await fetch(Config.SERVER_URL + `products/${productData.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +66,7 @@ function App() {
   // Delete a product
   const deleteProduct = async (productId) => {
     try {
-      await fetch(`http://127.0.0.1:3000/api/products/${productId}`, {
+      await fetch(Config.SERVER_URL + `products/${productId}`, {
         method: 'DELETE',
       });
       const updatedProducts = products.filter((product) => product.id !== productId);
