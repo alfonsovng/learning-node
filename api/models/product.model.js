@@ -1,15 +1,8 @@
 const mongoose = require('mongoose');
+const tools = require('./tools.js')
 
 const ProductSchema = mongoose.Schema(
     {
-        //https://stackoverflow.com/a/77228926
-        id: {
-            type: mongoose.Schema.Types.ObjectId,
-            default: function () {
-              return this._id;
-            }
-        },
-
         name: {
             type: String,
             required: [true, "Please enter product name"],
@@ -37,6 +30,6 @@ const ProductSchema = mongoose.Schema(
     }
 );
 
-//TODO: modificar el JSON d'entrada i sortida per a treure els camps updateAt, createdAt i que _id sigui id
+ProductSchema.methods.toJSON = tools.toJSON;
 
 module.exports = mongoose.model("Product", ProductSchema);
